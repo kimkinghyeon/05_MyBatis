@@ -25,6 +25,7 @@ public class Template {
                             new JdbcTransactionFactory(),
                             new PooledDataSource(DRIVER, URL, USER, PASSWORD));
 
+
             Configuration configuration = new Configuration(environment);
 
             configuration.addMapper(MenuMapper.class);

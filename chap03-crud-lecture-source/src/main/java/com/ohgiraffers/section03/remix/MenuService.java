@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
+import static com.ohgiraffers.section03.remix.Template.getSqlSession;
+
 public class MenuService {
 
     private MenuMapper menuMapper;
@@ -72,4 +74,5 @@ public class MenuService {
         sqlSession.close();
         return result > 0 ? true : false;
     }
+
 }
