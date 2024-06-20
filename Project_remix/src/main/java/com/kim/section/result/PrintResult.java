@@ -1,17 +1,19 @@
-package com.ohgiraffers.section03.remix;
+package com.kim.section.result;
+
+import com.kim.section.dto.EmployeeDTO;
 
 import java.util.List;
 
 public class PrintResult {
-    public void printMenuList(List<MenuDTO> menuList) {
+    public void printEmpList(List<EmployeeDTO> empList) {
 
-        for (MenuDTO menu : menuList) {
-            System.out.println(menu);
+        for (EmployeeDTO emp : empList) {
+            System.out.println(emp);
         }
     }
 
-    public void printMenu(MenuDTO menuDTO) {
-        System.out.println(menuDTO);
+    public void printEmp(EmployeeDTO empDTO) {
+        System.out.println(empDTO);
     }
 
     public void printErrorMessage(String errorCode) {
@@ -48,5 +50,6 @@ public class PrintResult {
             }
             System.out.println(sueccessMessage);
         }
+
 
 }

@@ -1,5 +1,5 @@
-package com.ohgiraffers.section03.remix;
-
+package com.kim.section;
+import com.kim.section.mapper.EmpMapper;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
@@ -27,7 +27,7 @@ public class Template {
 
             Configuration configuration = new Configuration(environment);
 
-            configuration.addMapper(MenuMapper.class);
+            configuration.addMapper(EmpMapper.class);
 
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
         }
