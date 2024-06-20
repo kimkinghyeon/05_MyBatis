@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class MenuDAO {
+
     /*
     DAO (Date Access Object)
     DB 의 데이터에 접근하기 위한 객체를 의미한다.
@@ -20,5 +21,20 @@ public class MenuDAO {
 
         return sqlSession.selectOne("MenuMapper.selectMenuByCode",code);
 
+    }
+
+    public int insertMenu(SqlSession sqlSession, MenuDTO menuDTO) {
+
+        return sqlSession.insert("MenuMapper.insertMenu",menuDTO);
+    }
+
+    public int updateMenu(SqlSession sqlSession, MenuDTO menuDTO) {
+
+        return sqlSession.update("MenuMapper.updateMenu",menuDTO);
+    }
+
+    public int deleteMenu(SqlSession sqlSession, int code) {
+
+        return sqlSession.delete("MenuMapper.deleteMenu",code);
     }
 }

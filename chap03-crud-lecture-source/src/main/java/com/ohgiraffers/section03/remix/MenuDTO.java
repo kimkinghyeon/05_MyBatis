@@ -1,6 +1,7 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section03.remix;
 
 public class MenuDTO {
+
     private int code;
     private String name;
     private int price;
@@ -50,16 +51,16 @@ public class MenuDTO {
         this.categoryCode = categoryCode;
     }
 
-    public String getOrderableStatus() {
+    public String getOderableStatus() {
         return orderableStatus;
     }
 
-    public void setOrderableStatus(String orderableStatus) {
+    public void setOderableStatus(String orderableStatus) {
         this.orderableStatus = orderableStatus;
     }
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "MenuDTO{" +
                 "code=" + code +
                 ", name='" + name + '\'' +
