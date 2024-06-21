@@ -20,19 +20,19 @@ public class PrintResult {
         String errorMessage = "";
         switch (errorCode) {
             case "selectList":
-                errorMessage = "메뉴 목록 조회를 실패했습니다.";
+                errorMessage = "직원 목록 조회를 실패했습니다.";
                 break;
             case "selectOne":
-                errorMessage = "메뉴 조회를 실패했습니다.";
+                errorMessage = "직원 조회를 실패했습니다.";
                 break;
             case "insert":
-                errorMessage = "신규 메뉴 등록을 실패했습니다.";
+                errorMessage = "신규 직원 등록을 실패했습니다.";
                 break;
             case "update":
-                errorMessage = "메뉴 수정을 실패했습니다.";
+                errorMessage = "직원 수정을 실패했습니다.";
                 break;
             case "delete":
-                errorMessage = "메뉴 삭제를 실패했습니다.";
+                errorMessage = "직원 삭제를 실패했습니다.";
                 break;
         }
         System.out.println(errorMessage);
@@ -41,11 +41,11 @@ public class PrintResult {
         public void printSuccessMessage(String sueccessCode){
             String sueccessMessage = "";
             switch (sueccessCode) {
-                case "insert": sueccessMessage = "신규 메뉴 등록을 성공했습니다.";
+                case "insert": sueccessMessage = "신규 직원 등록을 성공했습니다.";
                     break;
-                case "update": sueccessMessage = "메뉴 수정을 성공했습니다.";
+                case "update": sueccessMessage = "직원 수정을 성공했습니다.";
                     break;
-                case "delete": sueccessMessage = "메뉴 삭제를 성공했습니다.";
+                case "delete": sueccessMessage = "직원 삭제를 성공했습니다.";
                     break;
             }
             System.out.println(sueccessMessage);

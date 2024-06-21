@@ -10,7 +10,7 @@ import static com.kim.section.Template.getSqlSession;
 
 public class EmpService {
 
-    private EmpMapper empMapper;
+    private static EmpMapper empMapper;
 
     public List<EmployeeDTO> selectAllEmp() {
 
