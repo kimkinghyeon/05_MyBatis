@@ -17,6 +17,7 @@ public class AppJob {
             System.out.println("3. 신규 직급등록");
             System.out.println("4. 직급 정보 수정");
             System.out.println("5. 직급 정보 삭제");
+            System.out.println("6. 이전페이지");
             System.out.print("수행할 번호를 입력하세요 : ");
             int no = sc.nextInt();
             switch (no) {
@@ -24,10 +25,10 @@ public class AppJob {
                     jobController.selectAllJob();
                     break;
                 case 2:
-                   // jobController.selectJobByCode(inputJobCode());
+                    jobController.selectJobByCode(inputJobCode());
                     break;
                 case 3:
-                   // jobController.registJob(inputJob());
+                    jobController.registJob(inputJob());
                     break;
                 case 4:
                  //   jobController.modifyJob(inputModifyJob());
@@ -36,7 +37,7 @@ public class AppJob {
                    // jobController.deleteJob(inputJobCode());
                     break;
                 case 6:
-                    System.out.println("프로그램을 종료합니다.");
+                    System.out.println("오지라퍼 직원관리");
                     return;
                 default:
                     System.out.println("입력 하나 못하는 흑우없제");
@@ -46,7 +47,7 @@ public class AppJob {
         } while (true);
     }
 
-    private static Object inputJobCode() {
+    private static Map<String, String> inputJobCode() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("직원 코드를 입력하세요 : ");
@@ -59,15 +60,13 @@ public class AppJob {
 
     }
 
-    private static Object inputJob() {
+    private static Map<String,String> inputJob() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("직원의 사원번호를 입력하세요 : ");
+        System.out.print("직급 코드를 입력하세요 : ");
         String jobCode = sc.nextLine();
-
-        System.out.print("직원의 급여를 입력하세요 : ");
+        System.out.print("직급을 입력하세요 : ");
         String jobName = sc.nextLine();
-
 
         Map<String, String> parameter = new HashMap<>();
         parameter.put("jobCode",jobCode);

@@ -14,10 +14,11 @@
         from job
     </select>
 
-    <select id="selectJobByCode" parameterType="_int" resultMap="jobResultMap">
+    <select id="selectJobByCode" resultMap="jobResultMap">
         select
         job_code,
         job_name
+        from job
         where
         job_code = #{ jobCode }
     </select>

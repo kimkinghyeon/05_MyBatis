@@ -83,9 +83,11 @@ public class Application {
         sc.nextLine();
         String name = sc.nextLine();
         System.out.println("변경할 카테고리 코드를 입력하세요 : ");
+        sc.nextLine();
         int categoryCode = sc.nextInt();
         System.out.println("판매 여부를 결정해주세요(Y/N) : ");
-        String orderableStatus = sc.next();
+        sc.nextLine();
+        String orderableStatus = sc.nextLine();
 
         Map<String,Object> criteria = new HashMap<>();
         criteria.put("code",code);

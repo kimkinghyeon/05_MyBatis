@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface JobMapper {
     List<JobDTO> selectAllJob();
+
+    JobDTO selectJobByCode(String jobCode);
+
+    int insertJob(String jobCode);
 }

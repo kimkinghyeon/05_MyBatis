@@ -11,6 +11,7 @@ public class AppEmp {
 
         Scanner sc = new Scanner(System.in);
         EmpController empController = new EmpController();
+        AppJob appJob = new AppJob();
 
         do {
             System.out.println("==== 오지라퍼 직원관리 ====");
@@ -19,6 +20,7 @@ public class AppEmp {
             System.out.println("3. 신규 직원등록");
             System.out.println("4. 직원 정보 수정");
             System.out.println("5. 직원 정보 삭제");
+            System.out.println("6. 오지라퍼 직급관리 프로그램");
             System.out.print("수행할 번호를 입력하세요 : ");
             int no = sc.nextInt();
             switch (no) {
@@ -38,6 +40,9 @@ public class AppEmp {
                     empController.deleteEmp(inputEmpCode());
                     break;
                 case 6:
+                   AppJob.AppJobList();
+                   break;
+                case 9:
                     System.out.println("프로그램을 종료합니다.");
                     return;
                 default:

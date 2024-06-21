@@ -111,7 +111,7 @@ public class MenuService {
                 System.out.println(menu);
             }
         } else {
-            System.out.println("검색 결과가 존재하지 않습니다.");
+            System.out.println("판매하지 않거나 검색 결과가 존재하지 않습니다..");
         }
 
         sqlSession.close();
