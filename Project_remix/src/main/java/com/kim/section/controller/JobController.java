@@ -1,6 +1,5 @@
 package com.kim.section.controller;
 
-import com.kim.section.dto.EmployeeDTO;
 import com.kim.section.dto.JobDTO;
 import com.kim.section.result.JobPrintResult;
 import com.kim.section.service.JobService;
@@ -61,5 +60,33 @@ public class JobController {
         }
 
 
+    }
+
+    public void modifyJob(Map<String, String> parameter) {
+
+        String jobCode = parameter.get("jobCode");
+        String name = parameter.get("jobName");
+
+        JobDTO jobDTO = new JobDTO();
+
+        jobDTO.setJobName(name);
+        jobDTO.setJobCode(jobCode);
+
+
+        if(jobService.modifyJob(jobDTO)) {
+            jobprintResult.printSuccessMessage("update");
+        } else {
+            jobprintResult.printErrorMessage("update");
+        }
+    }
+
+    public void deleteJob(Map<String, String> parameter) {
+        String jobCode = parameter.get("jobCode");
+
+        if(jobService.deleteJob(jobCode)) {
+            jobprintResult.printSuccessMessage("delete");
+        } else {
+            jobprintResult.printErrorMessage("delete");
+        }
     }
 }

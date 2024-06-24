@@ -62,6 +62,7 @@
         category_code = #{ categoryCode }
         where
         menu_code = #{ code }
+
     </update>
 
     <delete id="deleteMenu" parameterType="_int">

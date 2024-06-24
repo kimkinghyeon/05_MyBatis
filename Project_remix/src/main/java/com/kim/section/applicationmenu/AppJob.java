@@ -31,10 +31,10 @@ public class AppJob {
                     jobController.registJob(inputJob());
                     break;
                 case 4:
-                 //   jobController.modifyJob(inputModifyJob());
+                    jobController.modifyJob(inputModifyJob());
                     break;
                 case 5:
-                   // jobController.deleteJob(inputJobCode());
+                    jobController.deleteJob(inputJobCode());
                     break;
                 case 6:
                     System.out.println("오지라퍼 직원관리");
@@ -50,7 +50,7 @@ public class AppJob {
     private static Map<String, String> inputJobCode() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("직원 코드를 입력하세요 : ");
+        System.out.print("직급 코드를 입력하세요 : ");
         String jobCode =sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
@@ -75,12 +75,12 @@ public class AppJob {
         return parameter;
     }
 
-    private static Object inputModifyJob() {
+    private static Map<String, String> inputModifyJob() {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("수정할 직원 코드를 입력하세요 : ");
+        System.out.print("수정할 직급코드를 입력하세요 : ");
         String jobCode = sc.nextLine();
-        System.out.print("수정할 급여등급 코드를 입력하세요 : ");
+        System.out.print("수정할 직급 이름을 입력하세요 : ");
         String jobName = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();

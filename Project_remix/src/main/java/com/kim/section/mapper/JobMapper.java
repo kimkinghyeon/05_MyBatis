@@ -10,4 +10,8 @@ public interface JobMapper {
     JobDTO selectJobByCode(String jobCode);
 
     int insertJob(String jobCode);
+
+    int modifyJob(JobDTO jobDTO);
+
+    int deleteJob(String jobName);
 }

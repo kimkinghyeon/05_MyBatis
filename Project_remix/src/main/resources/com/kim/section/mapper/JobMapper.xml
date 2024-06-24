@@ -30,13 +30,13 @@
     <update id="modifyJob" parameterType="com.kim.section.dto.JobDTO">
         update job
         set
-        job_name = #{ jobName },
-        job_code = #{ jobCode }
+        job_code = #{ jobCode },
+        job_name = #{ jobName }
         where
         job_code = #{ jobCode }
     </update>
 
-    <delete id="deleteJob" parameterType="_int">
+    <delete id="deleteJob" parameterType="com.kim.section.dto.JobDTO">
         delete
         from job
         where job_code = #{ jobCode }

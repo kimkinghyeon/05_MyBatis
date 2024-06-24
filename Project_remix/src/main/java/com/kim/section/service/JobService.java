@@ -53,4 +53,41 @@ public class JobService {
         sqlSession.close();
         return result > 0 ? true : false;
     }
+
+    public boolean modifyJob(JobDTO jobDTO) {
+        SqlSession sqlSession = getJobSqlSession();
+
+        jobMapper = sqlSession.getMapper(JobMapper.class);
+
+        int result = jobMapper.modifyJob(jobDTO);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+
+    }
+
+    public boolean deleteJob(String jobCode) {
+        SqlSession sqlSession = getJobSqlSession();
+
+        jobMapper = sqlSession.getMapper(JobMapper.class);
+
+        int result = jobMapper.deleteJob(jobCode);
+
+        if(result > 0) {
+            sqlSession.commit();
+        } else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0 ? true : false;
+    }
 }

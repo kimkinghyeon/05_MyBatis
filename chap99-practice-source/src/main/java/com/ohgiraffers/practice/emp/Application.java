@@ -24,8 +24,8 @@ public class Application {
 
 
             switch (no) {
-                case 1: break;
-                case 2: break;
+                case 1: elementTestService.associationTest(); break;
+                case 2: elementTestService.collectionTest(); break;
             }
         } while(true);
     }
