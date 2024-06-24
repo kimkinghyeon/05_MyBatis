@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ohgiraffers.practice.emp.ElementTestMapper">
+    <resultMap id="empResultMap" type="com.ohgiraffers.common.EmpDTOAndDeptDTO">
+        <id property="empId" column="emp_id"/>
+        <result property="name" column="emp_name"/>
+        <result property="no" column="emp_no"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="deptCode" column="dept_code"/>
+        <result property="jobCode" column="job_code"/>
+        <result property="salLevel" column="sal_level"/>
+        <result property="salary" column="salary"/>
+        <result property="bonus" column="bonus"/>
+        <result property="managerId" column="manager_id"/>
+        <result property="hireDate" column="hire_date"/>
+        <result property="entDate" column="ent_date"/>
+        <result property="entYn" column="ent_yn"/>
+        <association property="departmentDTO" javaType="com.ohgiraffers.common.DepartmentDTO">
+            <id property="deptId" column="dept_id"/>
+            <result property="deptTitle" column="dept_title"/>
+            <result property="locationId" column="location_id"/>
+        </association>
+    </resultMap>
+    <select id="associationTest" resultMap="empResultMap">
+        select
+<!--        a.emp_id,-->
+<!--        a.emp_name,-->
+<!--        a.emp_no,-->
+<!--        a.email,-->
+<!--        a.phone,-->
+<!--        a.dept_code,-->
+<!--        a.job_code,-->
+<!--        a.sal_level,-->
+<!--        a.salary,-->
+<!--        a.bonus,-->
+<!--        a.manager_id,-->
+<!--        a.hire_date,-->
+<!--        a.ent_date,-->
+<!--        a.ent_yn,-->
+        a.*,
+        b.dept_id,
+        b.dept_title,
+        b.location_id
+        from employee a
+        join department b on (a.dept_code = b.dept_id)
+        order by dept_id
+    </select>
+
+    <resultMap id="DepartmentDTOResultMap" type="com.ohgiraffers.common.DeptDTOAndEmpDTO">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptTitle" column="dept_title"/>
+        <result property="locationId" column="location_id"/>
+        <collection property="empList" ofType="com.ohgiraffers.common.EmployeeDTO">
+            <id property ="empId" column="emp_id"/>
+            <result property="name" column="emp_name"/>
+            <result property="no" column="emp_no"/>
+            <result property="email" column="email"/>
+            <result property="phone" column="phone"/>
+            <result property="deptCode" column="dept_code"/>
+            <result property="jobCode" column="job_code"/>
+            <result property="salLevel" column="sal_level"/>
+            <result property="salary" column="salary"/>
+            <result property="bonus" column="bonus"/>
+            <result property="managerId" column="manager_id"/>
+            <result property="hireDate" column="hire_date"/>
+            <result property="entDate" column="ent_date"/>
+            <result property="entYn" column="ent_yn"/>
+
+        </collection>
+    </resultMap>
+    <select id="collectionTest" resultMap="DepartmentDTOResultMap">
+        select
+        a.dept_id,
+        a.dept_title,
+        a.location_id,
+        b.*
+        from department a
+        join employee b on (a.dept_id = b.dept_code )
+    </select>
+</mapper>

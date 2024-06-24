@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kim.section.mapper.JobMapper">
+    <resultMap id="jobResultMap" type="com.kim.section.dto.JobDTO">
+        <id property ="jobCode" column="job_code"/>
+        <result property="jobName" column="job_name"/>
+
+    </resultMap>
+    <select id="selectAllJob" resultMap="jobResultMap">
+        select
+        *
+        from job
+    </select>
+
+    <select id="selectJobByCode" resultMap="jobResultMap">
+        select
+        job_code,
+        job_name
+        from job
+        where
+        job_code = #{ jobCode }
+    </select>
+
+    <insert id="insertJob" parameterType="com.kim.section.dto.JobDTO">
+        insert into job ( job_code, job_name ) values ( #{ jobCode },  #{ jobName } )
+    </insert>
+
+    <update id="modifyJob" parameterType="com.kim.section.dto.JobDTO">
+        update job
+        set
+        job_code = #{ jobCode },
+        job_name = #{ jobName }
+        where
+        job_code = #{ jobCode }
+    </update>
+
+    <delete id="deleteJob" parameterType="com.kim.section.dto.JobDTO">
+        delete
+        from job
+        where job_code = #{ jobCode }
+    </delete>
+
+</mapper>
