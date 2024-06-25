@@ -13,13 +13,14 @@ import static com.ohgiraffers.common.Template.getSqlSession;
 public class ElementTestService {
 
     private ElementTestMapper mapper;
+
     public void selectCacheTest() {
 
         SqlSession sqlSession = getSqlSession();
 
         mapper = sqlSession.getMapper(ElementTestMapper.class);
 
-        for(int i = 0; i < 10; i++ ) {
+        for (int i = 0; i < 10; i++) {
             // 조회시간 확인용 시작 시간
             Long startTime = System.currentTimeMillis();
 
@@ -42,7 +43,7 @@ public class ElementTestService {
         mapper = sqlSession.getMapper(ElementTestMapper.class);
         List<MenuDTO> menuDTOList = mapper.selectResultMapTest();
 
-        for (MenuDTO menu : menuDTOList){
+        for (MenuDTO menu : menuDTOList) {
             System.out.println(menu);
         }
 
@@ -56,7 +57,7 @@ public class ElementTestService {
         mapper = sqlSession.getMapper(ElementTestMapper.class);
         List<MenuDTO> menuDTOList = mapper.selectResultMapConstructorTest();
 
-        for (MenuDTO menu : menuDTOList){
+        for (MenuDTO menu : menuDTOList) {
             System.out.println(menu);
         }
 
@@ -70,7 +71,7 @@ public class ElementTestService {
         mapper = sqlSession.getMapper(ElementTestMapper.class);
         List<MenuAndCategoryDTO> menuDTOList = mapper.selectResultMapAssociationTest();
 
-        for (MenuAndCategoryDTO menu : menuDTOList){
+        for (MenuAndCategoryDTO menu : menuDTOList) {
             System.out.println(menu);
         }
 
@@ -88,7 +89,7 @@ public class ElementTestService {
 //        for (MenuDTO menu : menuList){
 //            System.out.println(menu.getName()+menu.getCode());
 //        }
-        for (CategoryAndMenuDTO menu : categoryList){
+        for (CategoryAndMenuDTO menu : categoryList) {
             System.out.println(menu);
         }
 
@@ -101,8 +102,50 @@ public class ElementTestService {
         mapper = sqlSession.getMapper(ElementTestMapper.class);
         List<MenuDTO> menuDTOList = mapper.selectSqlTest();
 
-        for (MenuDTO menu : menuDTOList){
+        for (MenuDTO menu : menuDTOList) {
             System.out.println(menu);
+        }
+
+        sqlSession.close();
+
+    }
+
+    public void insertMenuTest(MenuDTO menu) {
+        SqlSession sqlSession = getSqlSession();
+
+        mapper = sqlSession.getMapper(ElementTestMapper.class);
+
+        // 1 신규 카테고리 등록
+        // 2 신규 카테고리를 가지고 있는 메뉴등록
+        int result1 = mapper.insertMenuTest(menu);
+
+        if (result1 > 0) {
+            System.out.println("신규 메뉴등록 성공");
+            sqlSession.commit();
+        } else {
+            System.out.println("신규 메뉴등록 실패");
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+    }
+
+    public void insertCategoryMenuTest(MenuAndCategoryDTO menuAndCategoryDTO) {
+        SqlSession sqlSession = getSqlSession();
+
+        mapper = sqlSession.getMapper(ElementTestMapper.class);
+
+        // 1 신규 카테고리 등록
+        // 2 신규 카테고리를 가지고 있는 메뉴등록
+        int result1 = mapper.insertNewCategory(menuAndCategoryDTO);
+        int result2 = mapper.insetNewMenu(menuAndCategoryDTO);
+
+        if (result1 > 0 && result2 > 0) {
+            System.out.println("신규 메뉴와 카테고리 등록 성공");
+            sqlSession.commit();
+        } else {
+            System.out.println("신규 메뉴와 카테고리 등록 실패");
+            sqlSession.rollback();
         }
 
         sqlSession.close();

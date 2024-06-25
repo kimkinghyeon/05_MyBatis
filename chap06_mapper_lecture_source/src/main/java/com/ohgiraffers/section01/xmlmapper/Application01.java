@@ -1,5 +1,7 @@
 package com.ohgiraffers.section01.xmlmapper;
 
+import com.ohgiraffers.common.CategoryDTO;
+import com.ohgiraffers.common.MenuAndCategoryDTO;
 import com.ohgiraffers.common.MenuDTO;
 
 import java.util.Scanner;
@@ -86,10 +88,10 @@ public class Application01 {
             int no = sc.nextInt();
             switch (no) {
                 case 1:
-                    elementTestService.insertMenuTset(inputMenu());
+                    elementTestService.insertMenuTest(inputMenu());
                     break;
                 case 2:
-                   // elementTestService.();
+                    elementTestService.insertCategoryMenuTest(inputMenuAndCategory());
                     break;
                 case 5:
                     return;
@@ -99,14 +101,16 @@ public class Application01 {
     }
 
     private static MenuDTO inputMenu() {
+
         Scanner sc = new Scanner(System.in);
         System.out.print("등록할 메뉴 이름을 입력하세요 : ");
         String name = sc.nextLine();
-        System.out.print("등록할 메뉴 가격을 입력하세요 : ");
+        System.out.print("메뉴의 가격을 입력하세요 : ");
         int price = sc.nextInt();
         System.out.print("등록할 카테고리를 입력하세요 : ");
         int categoryCode = sc.nextInt();
-        System.out.print("등록할 메뉴 판매가능 여부 입력하세요 : ");
+        System.out.print("바로 판매등록을 할까요?(Y/N) : ");
+        sc.nextLine();
         String orderableStatus = sc.nextLine();
 
         MenuDTO menu = new MenuDTO();
@@ -116,6 +120,32 @@ public class Application01 {
         menu.setOrderableStatus(orderableStatus);
 
         return menu;
+    }
+
+    private static MenuAndCategoryDTO inputMenuAndCategory() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("등록할 카테고리 이름을 입력하세요 : ");
+        String categoryname = sc.nextLine();
+        System.out.print("등록할 메뉴 이름을 입력하세요 : ");
+        String name = sc.nextLine();
+        System.out.print("등록할 메뉴 가격을 입력하세요 : ");
+        int price = sc.nextInt();
+        System.out.print("등록할 메뉴 판매가능 여부 입력하세요 : ");
+        sc.nextLine();
+        String orderableStatus = sc.nextLine();
+
+        MenuAndCategoryDTO menu = new MenuAndCategoryDTO();
+        CategoryDTO category = new CategoryDTO();
+
+        category.setName(categoryname);
+
+        menu.setName(name);
+        menu.setPrice(price);
+        menu.setOrderableStatus(orderableStatus);
+        menu.setCategory(category);
+
+        return menu;
 
     }
 }
+
