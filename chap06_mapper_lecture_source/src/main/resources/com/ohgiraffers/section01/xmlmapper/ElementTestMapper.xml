@@ -42,6 +42,7 @@
     <resultMap id="menuResultMap1" type="com.ohgiraffers.common.MenuDTO" autoMapping="false">
         <id property="code" column="menu_code"/>
         <result property="name" column="menu_name"/>
+        <result property="price" column="menu_price"/>
         <result property="categoryCode" column="category_code"/>
         <result property="orderableStatus" column="orderable_status"/>
     </resultMap>
@@ -192,5 +193,25 @@
         where b.orderable_status = 'Y'
         order by a.category_code
     </select>
+
+<!--
+<SQL> 엘리먼트
+각 매핑 구문에서 공통으로 사용 할 수 있는 SQL 문자열의 일부를 정의하고 재사용하기 위해 사용된다.
+-->
+    <sql id="columns">
+        menu_code,
+        menu_name,
+        menu_price,
+        category_code,
+        orderable_status
+    </sql>
+
+    <select id="selectSqlTest" resultMap="menuResultMap2">
+       select
+        <include refid="columns"/>
+        from tbl_menu
+        where orderable_status = 'Y'
+    </select>
+
 
 </mapper>

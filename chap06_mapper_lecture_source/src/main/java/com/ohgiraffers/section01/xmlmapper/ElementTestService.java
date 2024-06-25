@@ -94,5 +94,19 @@ public class ElementTestService {
 
         sqlSession.close();
     }
+
+    public void selectSqlTest() {
+        SqlSession sqlSession = getSqlSession();
+
+        mapper = sqlSession.getMapper(ElementTestMapper.class);
+        List<MenuDTO> menuDTOList = mapper.selectSqlTest();
+
+        for (MenuDTO menu : menuDTOList){
+            System.out.println(menu);
+        }
+
+        sqlSession.close();
+
+    }
 }
 
