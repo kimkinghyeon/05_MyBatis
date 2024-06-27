@@ -95,20 +95,20 @@ public class AppEmp {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("수정할 직원 코드를 입력하세요 : ");
-        String empId = sc.nextLine();
+    String empId = sc.nextLine();
         System.out.print("수정할 직원 이름을 입력하세요 : ");
-        String name = sc.nextLine();
+    String name = sc.nextLine();
         System.out.print("수정할 직원 잡코드를 입력하세요 : ");
-        String jobCode = sc.nextLine();
+    String jobCode = sc.nextLine();
         System.out.print("수정할 급여등급 코드를 입력하세요 : ");
-        String salLevel = sc.nextLine();
+    String salLevel = sc.nextLine();
 
-        Map<String, String> parameter = new HashMap<>();
+    Map<String, String> parameter = new HashMap<>();
         parameter.put("empId", empId);
         parameter.put("name", name);
         parameter.put("jobCode", jobCode);
         parameter.put("salLevel", salLevel);
 
         return parameter;
-    }
+}
 }

@@ -41,6 +41,7 @@ public class PrintResult {
         public void printSuccessMessage(String sueccessCode){
             String sueccessMessage = "";
             switch (sueccessCode) {
+
                 case "insert": sueccessMessage = "신규 직원 등록을 성공했습니다.";
                     break;
                 case "update": sueccessMessage = "직원 수정을 성공했습니다.";
