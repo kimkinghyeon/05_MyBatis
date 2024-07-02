@@ -219,7 +219,6 @@ public class Application {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("상위 분류를 입력하세요 (식사,음료,디저트 ): ");
-
         String value = sc.nextLine();
 
         return new SearchCriteria("category", value);
